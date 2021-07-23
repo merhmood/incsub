@@ -87,7 +87,7 @@ body {
 .row .col-1 .form div input {
   display: block;
   width: 100%;
-  height: 6vh;
+  height: 2.9rem;
   margin-bottom: 2em;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -96,6 +96,10 @@ body {
   border-width: 1px;
   border-color: #cccccc;
   border-radius: 5px;
+}
+
+.row .col-1 .form div input:focus {
+  outline-color: black;
 }
 
 .row .col-1 .form div select {
@@ -168,7 +172,6 @@ body {
   color: white;
   text-align: center;
   padding: auto;
-  font-size: 0.85rem;
 }
 
 .row .col-2 h1 {
@@ -179,7 +182,7 @@ body {
   margin-bottom: 2em;
 }
 
-@media screen and (min-width: 1600px) {
+@media screen and (min-width: 1550px) {
   .container {
     margin: 0 auto;
   }
@@ -192,6 +195,7 @@ body {
         -ms-flex-direction: row;
             flex-direction: row;
     width: 100%;
+    height: 100%;
     -webkit-box-sizing: border-box;
             box-sizing: border-box;
   }
