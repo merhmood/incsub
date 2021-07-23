@@ -114,6 +114,7 @@ body {
   border-width: 1px;
   border-color: #cccccc;
   border-radius: 5px;
+  font-size: 0.8rem;
 }
 
 .row .col-1 .form div label {
@@ -150,6 +151,7 @@ body {
   margin-top: 2.5em;
   border-style: none;
   color: white;
+  font-size: 0.8rem;
   font-weight: 500;
   -webkit-transition-duration: 0.5s;
           transition-duration: 0.5s;
@@ -162,6 +164,7 @@ body {
   margin-top: 2.5em;
   border-style: none;
   color: #b3b3b3;
+  font-size: 0.8rem;
   font-weight: 500;
   -webkit-transition-duration: 0.5s;
           transition-duration: 0.5s;
