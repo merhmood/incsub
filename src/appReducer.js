@@ -60,22 +60,29 @@ export const appReducer = (state, action) => {
         }
         else if (action.value === 3) {
              action.autoFocus.three.current.focus()
+             console.log(state)
              if (action.formData.password.length === 0) {
                     return ({
                         ...state, style:{...state.style, three:{top: '-0.6em', fontSize: '0.6rem', transition: 'top 0.2s, fontsize 0.2s'}},
-                        formDataPassword:{...state.formDataPassword, error:{...state.error, pColor: 'black', pTextColor: 'black'}}
+                        formDataPassword:{...state.formDataPassword, error:{...state.error, pColor: 'black', pTextColor: 'black', value: false}}
                     })
              }
-            else if (action.error === 'red'  && action.formData.password.length > 0) {
+             else if (action.formData.password.length >= 8) {
+                 return ({
+                        ...state, style:{...state.style, three:{top: '-0.6em', fontSize: '0.6rem', transition: 'top 0.2s, fontsize 0.2s'}},
+                        formDataPassword:{...state.formDataPassword, error:{...state.error, pColor: 'black', pTextColor: 'green', value: true}}
+                    })
+             }
+            else if (action.formData.password.length < 8) {
                     return ({
                         ...state, style:{...state.style, three:{top: '-0.6em', fontSize: '0.6rem', transition: 'top 0.2s, fontsize 0.2s'}},
-                        formDataPassword:{...state.formDataPassword, error:{...state.error, pColor: 'red', pTextColor: 'red'}}
+                        formDataPassword:{...state.formDataPassword, error:{...state.error, pColor: 'red', pTextColor: 'red', value: true}}
                     }) 
              }
              else{
                     return ({
                     ...state, style:{...state.style, three:{top: '-0.6em', fontSize: '0.6rem', transition: 'top 0.2s, fontsize 0.2s'}},
-                    formDataPassword:{...state.formDataPassword, error:{...state.error, pColor: 'red', pTextColor: 'red'}}
+                    formDataPassword:{...state.formDataPassword, error:{...state.error, pColor: 'red', pTextColor: 'red', value: true}}
                 })
              }
         }
