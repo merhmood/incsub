@@ -73,7 +73,13 @@ body {
           border-width: 1px;
           border-color: #cccccc;
           border-radius: 5px;
-          outline-color: black;
+          outline: none;
+          &:focus {
+            border-color: black;
+            border-style: solid;
+            border-radius: 5px;
+            border-width: 2px;
+          }
         }
         select {
           display: block;
@@ -86,8 +92,15 @@ body {
           border-width: 1px;
           border-color: #cccccc;
           border-radius: 5px;
+          &:focus {
+            border-color: black;
+            border-style: solid;
+            border-radius: 5px;
+            border-width: 2px;
+          }
         }
         label {
+          cursor: text;
           position: absolute;
           top: 1.2em;
           left: 2em;

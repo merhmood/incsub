@@ -96,7 +96,14 @@ body {
   border-width: 1px;
   border-color: #cccccc;
   border-radius: 5px;
-  outline-color: black;
+  outline: none;
+}
+
+.row .col-1 .form div input:focus {
+  border-color: black;
+  border-style: solid;
+  border-radius: 5px;
+  border-width: 2px;
 }
 
 .row .col-1 .form div select {
@@ -113,7 +120,15 @@ body {
   border-radius: 5px;
 }
 
+.row .col-1 .form div select:focus {
+  border-color: black;
+  border-style: solid;
+  border-radius: 5px;
+  border-width: 2px;
+}
+
 .row .col-1 .form div label {
+  cursor: text;
   position: absolute;
   top: 1.2em;
   left: 2em;
