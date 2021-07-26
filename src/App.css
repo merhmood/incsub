@@ -96,9 +96,6 @@ body {
   border-width: 1px;
   border-color: #cccccc;
   border-radius: 5px;
-}
-
-.row .col-1 .form div input:focus {
   outline-color: black;
 }
 
