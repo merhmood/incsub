@@ -28,12 +28,13 @@ const App = () => {
   },
   formDataPassword:
   {
-    error:{color:'black', value: false},
+    error:{eColor:'#cccccc', pColor: '#cccccc', pTextColor: 'black', value: false},
     passwordVisibility:{ eye: '', visibility: false, inputType: 'password'}
   },
   error: false
 })
 const{visibility} = data.formDataPassword.passwordVisibility
+const{pTextColor} =  data.formDataPassword.error
 const eyeHandler = ()=>{
   dispatch({type: "EYE", visibility: visibility})
 }
@@ -41,14 +42,14 @@ const eyeHandler = ()=>{
 
 
   const autoFocusHandler = (value)=>{
-    dispatch({type:"AUTO-FOCUS", value, autoFocus})
+    dispatch({type:"AUTO-FOCUS", value, autoFocus, formData: data.formData , error: pTextColor})
   }
   const formHandler = (e)=>{
     const {name, value} = e.target
     dispatch({type:"FORM", name: name, value: value})
   }
   const blurHandler = (value)=>{
-   dispatch({type:"BLUR", value,  formData: data.formData})
+   dispatch({type:"BLUR", value ,formData: data.formData})
   }
   const submitHandler = (e)=>{
     e.preventDefault()
@@ -63,7 +64,9 @@ const eyeHandler = ()=>{
           <div className='form'>
             <h1>Let's setup your account</h1>
             <p>Already have an account? &nbsp;<span>Sign in</span></p>
+
             <Form onEvent={{autoFocusHandler, formHandler, blurHandler, submitHandler, eyeHandler}} propData={{ data, autoFocus}}/>
+
             <p></p>
           </div>
         </div>

@@ -19,7 +19,7 @@ export const appReducer = (state, action) => {
                     ...state, 
                     formData:{...state.formData, [action.name]: action.value} , 
                     formDataPassword:{...state.formDataPassword, 
-                    error: {...state.error, color:'red', value: false}
+                    error: {...state.error,  pColor:'red', pTextColor: 'red', value: false}
 
                 }
                 })
@@ -29,7 +29,7 @@ export const appReducer = (state, action) => {
                     ...state, 
                     formData:{...state.formData, [action.name]: action.value} , 
                     formDataPassword:{...state.formDataPassword, 
-                    error: {...state.error, color:'red', value: true}
+                    error: {...state.error, pColor:'red', pTextColor: 'red', value: true}
                 }
                 })
             }
@@ -38,7 +38,7 @@ export const appReducer = (state, action) => {
                     ...state, 
                     formData:{...state.formData, [action.name]: action.value} , 
                     formDataPassword:{...state.formDataPassword, 
-                    error: {...state.error, color:'green', value: true}
+                    error: {...state.error, pTextColor:'green', value: true}
                 }
                 })
             }
@@ -53,11 +53,31 @@ export const appReducer = (state, action) => {
         }
         else if (action.value === 2) {
              action.autoFocus.two.current.focus()
-            return ({...state, style:{...state.style, two:{top: '-0.6em', fontSize: '0.6rem', transition: 'top 0.2s, fontsize 0.2s'}}})
+            return ({
+                ...state, style:{...state.style, two:{top: '-0.6em', fontSize: '0.6rem', transition: 'top 0.2s, fontsize 0.2s'}},
+                formDataPassword:{...state.formDataPassword, error:{...state.error,eColor: 'black'}}
+        })
         }
         else if (action.value === 3) {
              action.autoFocus.three.current.focus()
-            return ({...state, style:{...state.style, three:{top: '-0.6em', fontSize: '0.6rem', transition: 'top 0.2s, fontsize 0.2s'}}})
+             if (action.formData.password.length === 0) {
+                    return ({
+                        ...state, style:{...state.style, three:{top: '-0.6em', fontSize: '0.6rem', transition: 'top 0.2s, fontsize 0.2s'}},
+                        formDataPassword:{...state.formDataPassword, error:{...state.error, pColor: 'black', pTextColor: 'black'}}
+                    })
+             }
+            else if (action.error === 'red'  && action.formData.password.length > 0) {
+                    return ({
+                        ...state, style:{...state.style, three:{top: '-0.6em', fontSize: '0.6rem', transition: 'top 0.2s, fontsize 0.2s'}},
+                        formDataPassword:{...state.formDataPassword, error:{...state.error, pColor: 'red', pTextColor: 'red'}}
+                    }) 
+             }
+             else{
+                    return ({
+                    ...state, style:{...state.style, three:{top: '-0.6em', fontSize: '0.6rem', transition: 'top 0.2s, fontsize 0.2s'}},
+                    formDataPassword:{...state.formDataPassword, error:{...state.error, pColor: 'red', pTextColor: 'red'}}
+                })
+             }
         }
         else{
             return ({...state})
@@ -69,10 +89,15 @@ export const appReducer = (state, action) => {
             return ({...state, style:{...state.style, one:{top: '1.2em', fontSize: '0.8rem', transition: 'top 0.2s, fontsize 0.2s'}}})
         }
         else if (action.value === 2 && action.formData.emailAddress.length === 0) {
-            return ({...state, style:{...state.style, two:{top: '1.2em', fontSize: '0.8rem', transition: 'top 0.2s, fontsize 0.2s'}}})
+            return ({...state, 
+                style:{...state.style, two:{top: '1.2em', fontSize: '0.8rem', transition: 'top 0.2s, fontsize 0.2s'}},
+                formDataPassword:{...state.formDataPassword, error:{...state.error,eColor: '#cccccc'}}})
         }
         else if (action.value === 3 && action.formData.password.length === 0) {
-            return ({...state, style:{...state.style, three:{top: '1.2em', fontSize: '0.8rem', transition: 'top 0.2s, fontsize 0.2s'}}})
+            return ({
+                ...state, style:{...state.style, three:{top: '1.2em', fontSize: '0.8rem', transition: 'top 0.2s, fontsize 0.2s'}},
+                formDataPassword:{...state.formDataPassword, error:{...state.error,pColor: '#cccccc'}}
+            })
         }
         else{
             return ({...state})
