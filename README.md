@@ -1,2 +1,16 @@
 # Modern login form with input validation
-* Click on this link to visit deployed application https://bit.ly/3BYBEgn
+# portfolio-site
+
+## Project setup
+```
+yarn install
+```
+
+### Compiles and hot-reloads for development
+```
+yarn start
+```
+
+### Compiles and minifies for production
+```
+yarn build
