@@ -1,5 +1,4 @@
 # Modern login form with input validation
-# portfolio-site
 
 ## Project setup
 ```
